@@ -12,6 +12,8 @@ bir assistive-tech marka demosudur.
 - Leadleri listeleyen yönetim paneli
 - SQLite veritabani
 - Katmanli mimari: config, database, services, routes
+- Lumivo ürün özellikleri: kamera, sesli asistan, çevre/nesne tanıma, metin okuma, navigasyon ve telefon bağlantısı
+- Tahmini teslim süresi: 1 hafta
 
 ## Kurulum
 

@@ -29,11 +29,10 @@ class AIService:
             {
                 "role": "system",
                 "content": (
-                    "Cevabında doğrulanmamış ürün özelliği yazma. GPS, navigasyon, "
-                    "kamera, yüz tanıma, metin okuma, sensör, düşme algılama, fiyat, "
-                    "stok veya kesin teslim süresi gibi detayları Lumivo özelliğiymiş "
-                    "gibi anlatma. Kullanıcı özellik sorarsa 'ürün detayları ekip "
-                    "görüşmesinde netleşir' de ve ihtiyaç formuna yönlendir."
+                    "Lumivo'nun doğrulanmış özellikleri kamera, sesli asistan, çevre "
+                    "ve nesne tanıma, metin okuma, navigasyon/yönlendirme ve telefon "
+                    "bağlantısıdır. Tahmini teslim süresi 1 haftadır. Fiyat, stok, "
+                    "tıbbi tedavi veya kesin sonuç vaadi verme."
                 ),
             },
         ]
