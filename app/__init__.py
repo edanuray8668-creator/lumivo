@@ -26,3 +26,6 @@ def create_app():
         return jsonify({"basari": True, "durum": "aktif"})
 
     return app
+
+
+app = create_app()
