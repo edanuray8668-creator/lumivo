@@ -48,15 +48,22 @@ def lead_kaydet():
     data = request.get_json(silent=True) or {}
     isim = (data.get("isim") or "").strip()
     telefon = (data.get("telefon") or "").strip()
-    mesaj = (data.get("mesaj") or "").strip()
+    email = (data.get("email") or "").strip()
+    ihtiyac = (data.get("ihtiyac") or "").strip()
+    teslim_tarihi = (data.get("teslim_tarihi") or "").strip()
 
-    if not isim or not telefon:
+    if not isim or not telefon or not email or not ihtiyac:
         return (
-            jsonify({"basari": False, "hata": "Isim ve telefon zorunludur."}),
+            jsonify(
+                {
+                    "basari": False,
+                    "hata": "Isim, telefon, e-posta ve ihtiyac bilgisi zorunludur.",
+                }
+            ),
             400,
         )
 
-    yeni_id = lead_ekle(isim, telefon, mesaj)
+    yeni_id = lead_ekle(isim, telefon, email, ihtiyac, teslim_tarihi)
     return jsonify({"basari": True, "id": yeni_id}), 201
 
 

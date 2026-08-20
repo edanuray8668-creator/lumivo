@@ -1,12 +1,14 @@
-# SmartLead AI
+# Lumivo SmartLead AI
 
-Studio Nova icin hazirlanmis Flask tabanli lead toplama ve yapay zeka sohbet MVP'si.
+Lumivo icin hazirlanmis Flask tabanli lead toplama ve yapay zeka sohbet MVP'si.
+Lumivo, gorme engelliler ve yakinlari icin akilli gozluk ureten tek urunlu
+bir assistive-tech marka demosudur.
 
 ## Ozellikler
 
 - Ziyaretci karşilama sayfasi
 - Yapay zeka destekli sohbet API'si
-- Isim, telefon ve mesaj ile lead kaydi
+- Isim, telefon, e-posta, ihtiyac ve teslim tarihi ile lead kaydi
 - Leadleri listeleyen yonetim paneli
 - SQLite veritabani
 - Katmanli mimari: config, database, services, routes

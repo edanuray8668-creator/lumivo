@@ -3,18 +3,20 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Studio Nova | SmartLead AI</title>
+  <title>Lumivo | Akilli Gozluk Asistani</title>
   <style>
     :root {
       color-scheme: light;
-      --ink: #1c1b1a;
-      --muted: #68635e;
-      --line: #ddd7d0;
-      --paper: #f7f4ef;
-      --panel: rgba(255, 255, 255, 0.72);
-      --accent: #0f766e;
-      --accent-dark: #115e59;
-      --coral: #e56b5d;
+      --ink: #172033;
+      --muted: #5b667a;
+      --line: #d8dee8;
+      --paper: #fbf7ef;
+      --panel: rgba(255, 255, 255, 0.78);
+      --sun: #f6a21a;
+      --sun-dark: #c87500;
+      --blue: #1f6f9f;
+      --blue-dark: #164e73;
+      --cream: #fff6df;
     }
 
     * { box-sizing: border-box; }
@@ -25,13 +27,14 @@
       font-family: Arial, Helvetica, sans-serif;
       color: var(--ink);
       background:
-        linear-gradient(135deg, rgba(15, 118, 110, 0.18), transparent 38%),
-        linear-gradient(315deg, rgba(229, 107, 93, 0.18), transparent 34%),
+        radial-gradient(circle at 18% 18%, rgba(246, 162, 26, 0.28), transparent 30%),
+        linear-gradient(135deg, rgba(31, 111, 159, 0.18), transparent 48%),
+        linear-gradient(315deg, rgba(246, 194, 76, 0.22), transparent 42%),
         var(--paper);
     }
 
     .shell {
-      width: min(1120px, calc(100% - 32px));
+      width: min(1160px, calc(100% - 32px));
       margin: 0 auto;
       padding: 28px 0;
     }
@@ -41,76 +44,108 @@
       justify-content: space-between;
       align-items: center;
       gap: 16px;
-      margin-bottom: 46px;
+      margin-bottom: 42px;
     }
 
     .brand {
-      font-weight: 800;
-      letter-spacing: 0;
-      font-size: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 900;
+      font-size: 24px;
+    }
+
+    .mark {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--sun), #ffe08a);
+      box-shadow: 0 0 0 6px rgba(246, 162, 26, 0.16);
     }
 
     .dashboard-link {
-      color: var(--accent-dark);
+      color: var(--blue-dark);
       text-decoration: none;
-      font-weight: 700;
+      font-weight: 800;
     }
 
     main {
       display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(320px, 440px);
-      gap: 32px;
+      grid-template-columns: minmax(0, 1fr) minmax(330px, 440px);
+      gap: 34px;
       align-items: start;
+    }
+
+    .eyebrow {
+      margin: 0 0 14px;
+      color: var(--blue-dark);
+      font-weight: 900;
     }
 
     h1 {
       margin: 0 0 18px;
-      font-size: clamp(38px, 7vw, 72px);
-      line-height: 0.98;
+      font-size: clamp(42px, 7vw, 76px);
+      line-height: 1;
       letter-spacing: 0;
-      max-width: 760px;
+      max-width: 790px;
     }
 
     .intro {
       color: var(--muted);
-      font-size: 18px;
+      font-size: 19px;
       line-height: 1.55;
-      max-width: 600px;
+      max-width: 650px;
     }
 
-    .services {
+    .product-strip {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 12px;
       margin-top: 32px;
-      max-width: 620px;
+      max-width: 760px;
     }
 
-    .service {
+    .product-item {
       border: 1px solid var(--line);
-      background: rgba(255, 255, 255, 0.54);
-      padding: 14px;
+      background: rgba(255, 255, 255, 0.62);
+      padding: 15px;
       border-radius: 8px;
-      font-weight: 700;
+      min-height: 96px;
+    }
+
+    .product-item strong {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--blue-dark);
+    }
+
+    .product-item span {
+      color: var(--muted);
+      line-height: 1.35;
     }
 
     .panel {
-      border: 1px solid rgba(255, 255, 255, 0.68);
+      border: 1px solid rgba(255, 255, 255, 0.8);
       border-radius: 8px;
       background: var(--panel);
-      box-shadow: 0 20px 70px rgba(40, 35, 30, 0.16);
+      box-shadow: 0 24px 80px rgba(23, 32, 51, 0.16);
       backdrop-filter: blur(18px);
       padding: 18px;
     }
 
+    .panel h2 {
+      margin: 0 0 12px;
+      font-size: 22px;
+    }
+
     .messages {
-      min-height: 210px;
-      max-height: 300px;
+      min-height: 190px;
+      max-height: 290px;
       overflow: auto;
       border: 1px solid var(--line);
       border-radius: 8px;
       padding: 12px;
-      background: rgba(255, 255, 255, 0.64);
+      background: rgba(255, 255, 255, 0.72);
       line-height: 1.45;
     }
 
@@ -122,7 +157,7 @@
     label {
       display: block;
       margin: 14px 0 6px;
-      font-weight: 700;
+      font-weight: 800;
       font-size: 14px;
     }
 
@@ -133,11 +168,18 @@
       padding: 12px;
       font: inherit;
       background: white;
+      color: var(--ink);
     }
 
     textarea {
       resize: vertical;
       min-height: 84px;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
     }
 
     button {
@@ -147,58 +189,93 @@
       border-radius: 8px;
       padding: 12px 14px;
       font: inherit;
-      font-weight: 800;
+      font-weight: 900;
       color: white;
-      background: var(--accent);
+      background: var(--blue);
       cursor: pointer;
     }
 
-    button.secondary { background: var(--coral); }
+    button.secondary {
+      background: linear-gradient(135deg, var(--sun), var(--sun-dark));
+    }
 
-    @media (max-width: 820px) {
+    .note {
+      margin: 12px 0 0;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.4;
+    }
+
+    @media (max-width: 860px) {
       main { grid-template-columns: 1fr; }
-      .services { grid-template-columns: 1fr; }
+      .product-strip { grid-template-columns: 1fr; }
+      .grid-2 { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
   <div class="shell">
     <header>
-      <div class="brand">Studio Nova</div>
-      <a class="dashboard-link" href="/dashboard">Panel</a>
+      <div class="brand"><span class="mark" aria-hidden="true"></span>Lumivo</div>
+      <a class="dashboard-link" href="/dashboard">Basvuru Paneli</a>
     </header>
 
     <main>
       <section>
-        <h1>Markan icin net, guclu ve uygulanabilir tasarim.</h1>
+        <p class="eyebrow">Gorme engelliler ve yakinlari icin akilli gozluk</p>
+        <h1>Istedigin yere kendi yolunla.</h1>
         <p class="intro">
-          Logo, sosyal medya, kurumsal kimlik ve kampanya gorselleri icin
-          ihtiyacini anlat. Asistanimiz seni dogru hizmete yonlendirsin.
+          Lumivo, gunluk hayatta cevreyi anlamaya, yon bulmaya ve daha bagimsiz
+          hareket etmeye destek olmak icin tasarlanan yardimci akilli gozluk deneyimidir.
         </p>
-        <div class="services">
-          <div class="service">Logo ve marka kimligi</div>
-          <div class="service">Sosyal medya tasarimi</div>
-          <div class="service">Afiş ve baski tasarimi</div>
-          <div class="service">Kampanya gorselleri</div>
+        <div class="product-strip" aria-label="Lumivo urun faydalari">
+          <div class="product-item">
+            <strong>Sade kullanim</strong>
+            <span>Tek urun, net arayuz ve gunluk hayata uygun yardimci deneyim.</span>
+          </div>
+          <div class="product-item">
+            <strong>Guven veren destek</strong>
+            <span>Kullanici ve yakininin ihtiyacini anlayan sakin bir basvuru sureci.</span>
+          </div>
+          <div class="product-item">
+            <strong>Yola eslik eder</strong>
+            <span>Amac, bagimsizligi desteklemek ve karar anlarini kolaylastirmak.</span>
+          </div>
         </div>
       </section>
 
-      <section class="panel" aria-label="SmartLead sohbet ve iletisim formu">
+      <section class="panel" aria-label="Lumivo sohbet ve basvuru formu">
+        <h2>Lumivo Asistani</h2>
         <div id="messages" class="messages">
-          <p class="message">Merhaba. Tasarim ihtiyacini kisaca yaz, sana yardim edeyim.</p>
+          <p class="message">Merhaba. Lumivo hakkinda merak ettiklerini yazabilirsin. Ihtiyacini anlamaya yardimci olayim.</p>
         </div>
 
-        <label for="mesaj">Mesajin</label>
-        <textarea id="mesaj" placeholder="Orn: Yeni kafem icin logo ve Instagram sablonlari istiyorum."></textarea>
-        <button id="sorButton">Sor</button>
+        <label for="mesaj">Sorun veya ihtiyac kisa ozeti</label>
+        <textarea id="mesaj" placeholder="Orn: Babam gorme engelli, disarida daha rahat hareket edebilmesi icin bilgi almak istiyoruz."></textarea>
+        <button id="sorButton">Asistana Sor</button>
 
-        <label for="isim">Isim</label>
-        <input id="isim" placeholder="Adiniz">
+        <div class="grid-2">
+          <div>
+            <label for="isim">Isim</label>
+            <input id="isim" autocomplete="name" placeholder="Adiniz">
+          </div>
+          <div>
+            <label for="telefon">Telefon</label>
+            <input id="telefon" autocomplete="tel" placeholder="+90 ...">
+          </div>
+        </div>
 
-        <label for="telefon">Telefon</label>
-        <input id="telefon" placeholder="+90 ...">
+        <label for="email">E-posta</label>
+        <input id="email" type="email" autocomplete="email" placeholder="ornek@mail.com">
 
-        <button id="kaydetButton" class="secondary">Iletisimimi Kaydet</button>
+        <label for="ihtiyac">Ihtiyac</label>
+        <textarea id="ihtiyac" placeholder="Kim icin arastiriyorsunuz? Gunluk hayatta en cok hangi konuda destek gerekiyor?"></textarea>
+
+        <label for="teslimTarihi">Tercih edilen teslim tarihi</label>
+        <input id="teslimTarihi" type="date">
+
+        <button id="kaydetButton" class="secondary">Basvuru Bilgilerini Gonder</button>
+        <p class="note">Bu form on bilgilendirme icindir. Lumivo ekibi detaylari gorusmek icin sizinle iletisime gecer.</p>
       </section>
     </main>
   </div>
@@ -208,19 +285,22 @@
     const mesajInput = document.querySelector("#mesaj");
     const isimInput = document.querySelector("#isim");
     const telefonInput = document.querySelector("#telefon");
+    const emailInput = document.querySelector("#email");
+    const ihtiyacInput = document.querySelector("#ihtiyac");
+    const teslimTarihiInput = document.querySelector("#teslimTarihi");
 
     function addMessage(text, strong = false) {
       const p = document.createElement("p");
       p.className = "message";
       p.textContent = text;
-      if (strong) p.style.color = "#1c1b1a";
+      if (strong) p.style.color = "#172033";
       messages.appendChild(p);
       messages.scrollTop = messages.scrollHeight;
     }
 
     document.querySelector("#sorButton").addEventListener("click", async () => {
       const mesaj = mesajInput.value.trim();
-      if (!mesaj) return addMessage("Lutfen once mesaj yaz.", true);
+      if (!mesaj) return addMessage("Lutfen once sorunuzu veya ihtiyacinizi yazin.", true);
 
       addMessage("Sen: " + mesaj, true);
       const response = await fetch("/api/sohbet", {
@@ -229,14 +309,16 @@
         body: JSON.stringify({ mesaj })
       });
       const data = await response.json();
-      addMessage(data.basari ? "Asistan: " + data.cevap : data.hata, true);
+      addMessage(data.basari ? "Lumivo Asistani: " + data.cevap : data.hata, true);
     });
 
     document.querySelector("#kaydetButton").addEventListener("click", async () => {
       const payload = {
         isim: isimInput.value.trim(),
         telefon: telefonInput.value.trim(),
-        mesaj: mesajInput.value.trim()
+        email: emailInput.value.trim(),
+        ihtiyac: ihtiyacInput.value.trim(),
+        teslim_tarihi: teslimTarihiInput.value
       };
       const response = await fetch("/api/leads", {
         method: "POST",
@@ -244,7 +326,7 @@
         body: JSON.stringify(payload)
       });
       const data = await response.json();
-      addMessage(data.basari ? "Kaydiniz alindi. En kisa surede donus yapacagiz." : data.hata, true);
+      addMessage(data.basari ? "Basvuru bilgileriniz alindi. Lumivo ekibi sizinle iletisime gececek." : data.hata, true);
     });
   </script>
 </body>

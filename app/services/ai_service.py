@@ -13,9 +13,9 @@ class AIService:
     def yanit_uret(self, mesaj, gecmis=None):
         if not current_app.config["GROQ_API_KEY"]:
             return (
-                "Demo modu aktif. API anahtari eklenince gercek yapay zeka "
-                "cevabi donecek. Projenizi anlatirsaniz size uygun tasarim "
-                "hizmetine yonlendirebilirim."
+                "Demo modu aktif. API anahtari eklenince gercek Lumivo asistani "
+                "cevabi donecek. Ihtiyacinizi kisaca paylasirsaniz akilli gozluk "
+                "hakkinda on bilgi ve basvuru sureci icin yardimci olabilirim."
             )
 
         try:

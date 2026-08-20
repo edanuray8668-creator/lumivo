@@ -25,21 +25,37 @@ def init_db(app):
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             isim TEXT NOT NULL,
             telefon TEXT NOT NULL,
-            mesaj TEXT,
+            email TEXT,
+            ihtiyac TEXT,
+            teslim_tarihi TEXT,
             tarih TEXT NOT NULL
         )
         """
     )
+    mevcut_kolonlar = {
+        row["name"] for row in db.execute("PRAGMA table_info(leads)").fetchall()
+    }
+    yeni_kolonlar = {
+        "email": "TEXT",
+        "ihtiyac": "TEXT",
+        "teslim_tarihi": "TEXT",
+    }
+    for kolon, kolon_tipi in yeni_kolonlar.items():
+        if kolon not in mevcut_kolonlar:
+            db.execute(f"ALTER TABLE leads ADD COLUMN {kolon} {kolon_tipi}")
     db.commit()
     app.teardown_appcontext(close_db)
 
 
-def lead_ekle(isim, telefon, mesaj=""):
+def lead_ekle(isim, telefon, email="", ihtiyac="", teslim_tarihi=""):
     tarih = datetime.utcnow().isoformat(timespec="seconds")
     db = get_db()
     cursor = db.execute(
-        "INSERT INTO leads (isim, telefon, mesaj, tarih) VALUES (?, ?, ?, ?)",
-        (isim, telefon, mesaj, tarih),
+        """
+        INSERT INTO leads (isim, telefon, email, ihtiyac, teslim_tarihi, tarih)
+        VALUES (?, ?, ?, ?, ?, ?)
+        """,
+        (isim, telefon, email, ihtiyac, teslim_tarihi, tarih),
     )
     db.commit()
     return cursor.lastrowid
@@ -48,6 +64,10 @@ def lead_ekle(isim, telefon, mesaj=""):
 def tum_leadler():
     db = get_db()
     rows = db.execute(
-        "SELECT id, isim, telefon, mesaj, tarih FROM leads ORDER BY id DESC"
+        """
+        SELECT id, isim, telefon, email, ihtiyac, teslim_tarihi, tarih
+        FROM leads
+        ORDER BY id DESC
+        """
     ).fetchall()
     return [dict(row) for row in rows]
