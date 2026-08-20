@@ -13,15 +13,15 @@ class AIService:
     def yanit_uret(self, mesaj, gecmis=None):
         if not current_app.config["GROQ_API_KEY"]:
             return (
-                "Demo modu aktif. API anahtari eklenince gercek Lumivo asistani "
-                "cevabi donecek. Ihtiyacinizi kisaca paylasirsaniz akilli gozluk "
-                "hakkinda on bilgi ve basvuru sureci icin yardimci olabilirim."
+                "Demo modu aktif. API anahtarı eklenince gerçek Lumivo asistanı "
+                "cevabı dönecek. İhtiyacınızı kısaca paylaşırsanız akıllı gözlük "
+                "hakkında ön bilgi ve başvuru süreci için yardımcı olabilirim."
             )
 
         try:
             return self._groq_yanit_uret(mesaj, gecmis or [])
         except requests.RequestException as exc:
-            raise AIServiceError("Yapay zeka servisine ulasilamadi.") from exc
+            raise AIServiceError("Yapay zekâ servisine ulaşılamadı.") from exc
 
     def _groq_yanit_uret(self, mesaj, gecmis):
         messages = [{"role": "system", "content": self.sistem_talimati()}]

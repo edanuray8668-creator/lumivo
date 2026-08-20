@@ -1,15 +1,15 @@
 # Lumivo SmartLead AI
 
-Lumivo icin hazirlanmis Flask tabanli lead toplama ve yapay zeka sohbet MVP'si.
-Lumivo, gorme engelliler ve yakinlari icin akilli gozluk ureten tek urunlu
+Lumivo için hazırlanmış Flask tabanlı lead toplama ve yapay zekâ sohbet MVP'si.
+Lumivo, görme engelliler ve yakınları için akıllı gözlük üreten tek ürünlü
 bir assistive-tech marka demosudur.
 
 ## Ozellikler
 
 - Ziyaretci karşilama sayfasi
-- Yapay zeka destekli sohbet API'si
-- Isim, telefon, e-posta, ihtiyac ve teslim tarihi ile lead kaydi
-- Leadleri listeleyen yonetim paneli
+- Yapay zekâ destekli sohbet API'si
+- İsim, telefon, e-posta, ihtiyaç ve teslim tarihi ile lead kaydı
+- Leadleri listeleyen yönetim paneli
 - SQLite veritabani
 - Katmanli mimari: config, database, services, routes
 
@@ -31,7 +31,7 @@ Tarayicida:
 
 ## Ortam Degiskenleri
 
-`.env` dosyasi GitHub'a yuklenmez. Gercek Groq cevabi icin `GROQ_API_KEY` alanini doldurun.
+`.env` dosyası GitHub'a yüklenmez. Gerçek Groq cevabı için `GROQ_API_KEY` alanını doldurun.
 
 ## Render
 

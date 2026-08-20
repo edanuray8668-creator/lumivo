@@ -34,7 +34,7 @@ def sohbet():
             jsonify(
                 {
                     "basari": False,
-                    "hata": "Asistan su anda yanit veremiyor. Lutfen tekrar deneyin.",
+                    "hata": "Asistan şu anda yanıt veremiyor. Lütfen tekrar deneyin.",
                 }
             ),
             503,
@@ -57,7 +57,7 @@ def lead_kaydet():
             jsonify(
                 {
                     "basari": False,
-                    "hata": "Isim, telefon, e-posta ve ihtiyac bilgisi zorunludur.",
+                    "hata": "İsim, telefon, e-posta ve ihtiyaç bilgisi zorunludur.",
                 }
             ),
             400,

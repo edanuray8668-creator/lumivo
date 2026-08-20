@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Lumivo | Basvuru Paneli</title>
+  <title>Lumivo | Başvuru Paneli</title>
   <style>
     * { box-sizing: border-box; }
     body {
@@ -68,10 +68,10 @@
 <body>
   <div class="shell">
     <header>
-      <h1>Lumivo Basvuru Paneli</h1>
-      <a href="/">Siteye Don</a>
+      <h1>Lumivo Başvuru Paneli</h1>
+      <a href="/">Siteye Dön</a>
     </header>
-    <div id="content" class="empty">Basvurular yukleniyor...</div>
+    <div id="content" class="empty">Başvurular yükleniyor...</div>
   </div>
 
   <script>
@@ -82,7 +82,7 @@
 
       if (!data.basari || data.leads.length === 0) {
         content.className = "empty";
-        content.textContent = "Henuz basvuru kaydi yok.";
+        content.textContent = "Henüz başvuru kaydı yok.";
         return;
       }
 
@@ -91,10 +91,10 @@
         <table>
           <thead>
             <tr>
-              <th>Isim</th>
+              <th>İsim</th>
               <th>Telefon</th>
               <th>E-posta</th>
-              <th>Ihtiyac</th>
+              <th>İhtiyaç</th>
               <th>Teslim</th>
               <th>Tarih</th>
             </tr>
@@ -102,10 +102,10 @@
           <tbody>
             ${data.leads.map((lead) => `
               <tr>
-                <td data-label="Isim">${lead.isim}</td>
+                <td data-label="İsim">${lead.isim}</td>
                 <td data-label="Telefon">${lead.telefon}</td>
                 <td data-label="E-posta">${lead.email || "-"}</td>
-                <td data-label="Ihtiyac">${lead.ihtiyac || "-"}</td>
+                <td data-label="İhtiyaç">${lead.ihtiyac || "-"}</td>
                 <td data-label="Teslim">${lead.teslim_tarihi || "-"}</td>
                 <td data-label="Tarih">${lead.tarih}</td>
               </tr>

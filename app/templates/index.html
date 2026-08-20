@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Lumivo | Akilli Gozluk Asistani</title>
+  <title>Lumivo | Akıllı Gözlük Asistanı</title>
   <style>
     :root {
       color-scheme: light;
@@ -217,47 +217,47 @@
   <div class="shell">
     <header>
       <div class="brand"><span class="mark" aria-hidden="true"></span>Lumivo</div>
-      <a class="dashboard-link" href="/dashboard">Basvuru Paneli</a>
+      <a class="dashboard-link" href="/dashboard">Başvuru Paneli</a>
     </header>
 
     <main>
       <section>
-        <p class="eyebrow">Gorme engelliler ve yakinlari icin akilli gozluk</p>
-        <h1>Istedigin yere kendi yolunla.</h1>
+        <p class="eyebrow">Görme engelliler ve yakınları için akıllı gözlük</p>
+        <h1>Yol senin, destek Lumivo.</h1>
         <p class="intro">
-          Lumivo, gunluk hayatta cevreyi anlamaya, yon bulmaya ve daha bagimsiz
-          hareket etmeye destek olmak icin tasarlanan yardimci akilli gozluk deneyimidir.
+          Lumivo, günlük hayatta çevreyi anlamaya, yön bulmaya ve daha bağımsız
+          hareket etmeye destek olmak için tasarlanan yardımcı akıllı gözlük deneyimidir.
         </p>
-        <div class="product-strip" aria-label="Lumivo urun faydalari">
+        <div class="product-strip" aria-label="Lumivo ürün faydaları">
           <div class="product-item">
-            <strong>Sade kullanim</strong>
-            <span>Tek urun, net arayuz ve gunluk hayata uygun yardimci deneyim.</span>
+            <strong>Sade kullanım</strong>
+            <span>Tek ürün, net arayüz ve günlük hayata uygun yardımcı deneyim.</span>
           </div>
           <div class="product-item">
-            <strong>Guven veren destek</strong>
-            <span>Kullanici ve yakininin ihtiyacini anlayan sakin bir basvuru sureci.</span>
+            <strong>Güven veren destek</strong>
+            <span>Kullanıcı ve yakınının ihtiyacını anlayan sakin bir başvuru süreci.</span>
           </div>
           <div class="product-item">
-            <strong>Yola eslik eder</strong>
-            <span>Amac, bagimsizligi desteklemek ve karar anlarini kolaylastirmak.</span>
+            <strong>Yola eşlik eder</strong>
+            <span>Amaç, bağımsızlığı desteklemek ve karar anlarını kolaylaştırmak.</span>
           </div>
         </div>
       </section>
 
-      <section class="panel" aria-label="Lumivo sohbet ve basvuru formu">
-        <h2>Lumivo Asistani</h2>
+      <section class="panel" aria-label="Lumivo sohbet ve başvuru formu">
+        <h2>Lumivo Asistanı</h2>
         <div id="messages" class="messages">
-          <p class="message">Merhaba. Lumivo hakkinda merak ettiklerini yazabilirsin. Ihtiyacini anlamaya yardimci olayim.</p>
+          <p class="message">Merhaba. Lumivo hakkında merak ettiklerini yazabilirsin. İhtiyacını anlamaya yardımcı olayım.</p>
         </div>
 
-        <label for="mesaj">Sorun veya ihtiyac kisa ozeti</label>
-        <textarea id="mesaj" placeholder="Orn: Babam gorme engelli, disarida daha rahat hareket edebilmesi icin bilgi almak istiyoruz."></textarea>
+        <label for="mesaj">Sorun veya ihtiyaç kısa özeti</label>
+        <textarea id="mesaj" placeholder="Örn: Babam görme engelli, dışarıda daha rahat hareket edebilmesi için bilgi almak istiyoruz."></textarea>
         <button id="sorButton">Asistana Sor</button>
 
         <div class="grid-2">
           <div>
-            <label for="isim">Isim</label>
-            <input id="isim" autocomplete="name" placeholder="Adiniz">
+            <label for="isim">İsim</label>
+            <input id="isim" autocomplete="name" placeholder="Adınız">
           </div>
           <div>
             <label for="telefon">Telefon</label>
@@ -268,14 +268,14 @@
         <label for="email">E-posta</label>
         <input id="email" type="email" autocomplete="email" placeholder="ornek@mail.com">
 
-        <label for="ihtiyac">Ihtiyac</label>
-        <textarea id="ihtiyac" placeholder="Kim icin arastiriyorsunuz? Gunluk hayatta en cok hangi konuda destek gerekiyor?"></textarea>
+        <label for="ihtiyac">İhtiyaç</label>
+        <textarea id="ihtiyac" placeholder="Kim için araştırıyorsunuz? Günlük hayatta en çok hangi konuda destek gerekiyor?"></textarea>
 
         <label for="teslimTarihi">Tercih edilen teslim tarihi</label>
         <input id="teslimTarihi" type="date">
 
-        <button id="kaydetButton" class="secondary">Basvuru Bilgilerini Gonder</button>
-        <p class="note">Bu form on bilgilendirme icindir. Lumivo ekibi detaylari gorusmek icin sizinle iletisime gecer.</p>
+        <button id="kaydetButton" class="secondary">Başvuru Bilgilerini Gönder</button>
+        <p class="note">Bu form ön bilgilendirme içindir. Lumivo ekibi detayları görüşmek için sizinle iletişime geçer.</p>
       </section>
     </main>
   </div>
@@ -300,7 +300,7 @@
 
     document.querySelector("#sorButton").addEventListener("click", async () => {
       const mesaj = mesajInput.value.trim();
-      if (!mesaj) return addMessage("Lutfen once sorunuzu veya ihtiyacinizi yazin.", true);
+      if (!mesaj) return addMessage("Lütfen önce sorunuzu veya ihtiyacınızı yazın.", true);
 
       addMessage("Sen: " + mesaj, true);
       const response = await fetch("/api/sohbet", {
@@ -309,7 +309,7 @@
         body: JSON.stringify({ mesaj })
       });
       const data = await response.json();
-      addMessage(data.basari ? "Lumivo Asistani: " + data.cevap : data.hata, true);
+      addMessage(data.basari ? "Lumivo Asistanı: " + data.cevap : data.hata, true);
     });
 
     document.querySelector("#kaydetButton").addEventListener("click", async () => {
@@ -326,7 +326,7 @@
         body: JSON.stringify(payload)
       });
       const data = await response.json();
-      addMessage(data.basari ? "Basvuru bilgileriniz alindi. Lumivo ekibi sizinle iletisime gececek." : data.hata, true);
+      addMessage(data.basari ? "Başvuru bilgileriniz alındı. Lumivo ekibi sizinle iletişime geçecek." : data.hata, true);
     });
   </script>
 </body>
