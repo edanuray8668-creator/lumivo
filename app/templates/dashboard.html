@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Studio Nova | Lead Paneli</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: #1c1b1a;
+      background: #f7f4ef;
+    }
+    .shell {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 28px 0;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+    h1 { margin: 0; font-size: 34px; letter-spacing: 0; }
+    a { color: #115e59; font-weight: 700; text-decoration: none; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: white;
+      border: 1px solid #ddd7d0;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    th, td {
+      padding: 13px 14px;
+      border-bottom: 1px solid #eee7df;
+      text-align: left;
+      vertical-align: top;
+    }
+    th {
+      background: #0f766e;
+      color: white;
+    }
+    tr:last-child td { border-bottom: 0; }
+    .empty {
+      padding: 18px;
+      border: 1px solid #ddd7d0;
+      border-radius: 8px;
+      background: white;
+      color: #68635e;
+    }
+    @media (max-width: 720px) {
+      table, thead, tbody, th, td, tr { display: block; }
+      thead { display: none; }
+      tr { border-bottom: 1px solid #ddd7d0; }
+      td::before {
+        content: attr(data-label);
+        display: block;
+        font-weight: 800;
+        margin-bottom: 4px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header>
+      <h1>Lead Paneli</h1>
+      <a href="/">Siteye Don</a>
+    </header>
+    <div id="content" class="empty">Kayitlar yukleniyor...</div>
+  </div>
+
+  <script>
+    async function loadLeads() {
+      const content = document.querySelector("#content");
+      const response = await fetch("/api/leads");
+      const data = await response.json();
+
+      if (!data.basari || data.leads.length === 0) {
+        content.className = "empty";
+        content.textContent = "Henuz lead kaydi yok.";
+        return;
+      }
+
+      content.className = "";
+      content.innerHTML = `
+        <table>
+          <thead>
+            <tr>
+              <th>Isim</th>
+              <th>Telefon</th>
+              <th>Mesaj</th>
+              <th>Tarih</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${data.leads.map((lead) => `
+              <tr>
+                <td data-label="Isim">${lead.isim}</td>
+                <td data-label="Telefon">${lead.telefon}</td>
+                <td data-label="Mesaj">${lead.mesaj || "-"}</td>
+                <td data-label="Tarih">${lead.tarih}</td>
+              </tr>
+            `).join("")}
+          </tbody>
+        </table>
+      `;
+    }
+
+    loadLeads();
+  </script>
+</body>
+</html>
