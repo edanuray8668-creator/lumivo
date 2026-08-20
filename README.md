@@ -4,6 +4,8 @@ Lumivo için hazırlanmış Flask tabanlı lead toplama ve yapay zekâ sohbet MV
 Lumivo, görme engelliler ve yakınları için akıllı gözlük üreten tek ürünlü
 bir assistive-tech marka demosudur.
 
+Canlı backend: `https://lumivo-vucs.onrender.com`
+
 ## Özellikler
 
 - Ziyaretçi karşılama sayfası

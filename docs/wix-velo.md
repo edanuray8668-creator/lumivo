@@ -16,6 +16,12 @@ Wix canlı site, yerel bilgisayarındaki bu adrese erişemez. Render sonrası `A
 const API_BASE_URL = "https://YOUR-RENDER-APP.onrender.com";
 ```
 
+Lumivo için güncel canlı API adresi:
+
+```js
+const API_BASE_URL = "https://lumivo-vucs.onrender.com";
+```
+
 ## 2. Karşılama Sayfası Element ID'leri
 
 Wix ana sayfasında şu elementleri oluştur ve ID'lerini birebir böyle ayarla:

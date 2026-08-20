@@ -10,6 +10,12 @@ Kod GitHub'a gönderildi:
 https://github.com/edanuray8668-creator/lumivo
 ```
 
+Canlı Render adresi:
+
+```text
+https://lumivo-vucs.onrender.com
+```
+
 ## 2. Render Web Service
 
 Render panelinde:
@@ -48,7 +54,7 @@ CORS_ORIGINS=*
 Deploy tamamlanınca Render URL'sinde şu adresi aç:
 
 ```text
-https://YOUR-RENDER-APP.onrender.com/health
+https://lumivo-vucs.onrender.com/health
 ```
 
 Beklenen cevap:
@@ -70,5 +76,5 @@ Render URL'si belli olunca şu dosyalardaki `API_BASE_URL` değerini değiştir:
 Örnek:
 
 ```js
-const API_BASE_URL = "https://lumivo.onrender.com";
+const API_BASE_URL = "https://lumivo-vucs.onrender.com";
 ```

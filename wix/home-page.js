@@ -1,6 +1,6 @@
 import { fetch } from "wix-fetch";
 
-const API_BASE_URL = "https://YOUR-RENDER-APP.onrender.com";
+const API_BASE_URL = "https://lumivo-vucs.onrender.com";
 
 $w.onReady(function () {
   $w("#answerText").text = "Merhaba. Lumivo hakkında merak ettiklerini yazabilirsin.";
