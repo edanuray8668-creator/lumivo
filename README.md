@@ -41,6 +41,8 @@ Varsayılan Groq modeli `AI_MODEL=openai/gpt-oss-20b` olarak ayarlanmıştır.
 
 - Build command: `pip install -r requirements.txt`
 - Start command: `gunicorn run:app`
+- Render blueprint: `render.yaml`
+- Detaylı yönerge: `docs/render-deploy.md`
 
 ## Wix
 
