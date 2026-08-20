@@ -24,7 +24,19 @@ class AIService:
             raise AIServiceError("Yapay zekâ servisine ulaşılamadı.") from exc
 
     def _groq_yanit_uret(self, mesaj, gecmis):
-        messages = [{"role": "system", "content": self.sistem_talimati()}]
+        messages = [
+            {"role": "system", "content": self.sistem_talimati()},
+            {
+                "role": "system",
+                "content": (
+                    "Cevabında doğrulanmamış ürün özelliği yazma. GPS, navigasyon, "
+                    "kamera, yüz tanıma, metin okuma, sensör, düşme algılama, fiyat, "
+                    "stok veya kesin teslim süresi gibi detayları Lumivo özelliğiymiş "
+                    "gibi anlatma. Kullanıcı özellik sorarsa 'ürün detayları ekip "
+                    "görüşmesinde netleşir' de ve ihtiyaç formuna yönlendir."
+                ),
+            },
+        ]
         messages.extend(gecmis)
         messages.append({"role": "user", "content": mesaj})
 
@@ -35,7 +47,7 @@ class AIService:
                 "Content-Type": "application/json",
             },
             json={
-                "model": "llama-3.1-8b-instant",
+                "model": current_app.config["AI_MODEL"],
                 "messages": messages,
                 "temperature": 0.5,
             },

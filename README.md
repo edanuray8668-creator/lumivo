@@ -32,6 +32,7 @@ Tarayicida:
 ## Ortam Degiskenleri
 
 `.env` dosyası GitHub'a yüklenmez. Gerçek Groq cevabı için `GROQ_API_KEY` alanını doldurun.
+Varsayılan Groq modeli `AI_MODEL=openai/gpt-oss-20b` olarak ayarlanmıştır.
 
 ## Render
 
